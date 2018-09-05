@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký người dùng";
+    Layout = "~/Views/Shared/ThuVienMasterPage.cshtml";
+}
+
+@section ViewJS{
+    <script>
+        function check() {
+            var password = document.getElementById("password").value;
+            var repassword = document.getElementById("repassword").value;
+            if (password == repassword) {
+                return true;
+            } else {
+                alert("Hai mật khẩu không trùng nhau");
+                return false;
+            }
+        }
+    </script>
+}
+
+<h2>Đăng Ký</h2>
+<form id="registerForm" method="post" action="/DangKy/ThucHienDangKy" enctype="multipart/form-data">
+    <table class="table" style="text-align:center;color:forestgreen; border:solid 2px">
+        <tr>
+            <td style="font-weight:bold;font-size:20px"colspan="2">ĐĂNG KÝ TÀI KHOẢN</td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Nhập tài khoản<span style="color:red">(*)</span></td>
+            <td><input class="form-control" style="width:200px" type="text" id="username" name="username" placeholder="Nhập tài khoản" required /></td>
+        </tr>
+        <tr> 
+            <td style="font-size:17px">Nhập mật khẩu<span style="color:red">(*)</span></td>
+            <td><input class="form-control" style="width:200px" type="password" id="password" name="password" placeholder="Nhập mật khẩu" required /></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Nhập lại mật khẩu<span style="color:red">(*)</span></td>
+            <td><input class="form-control" style="width:200px" type="password" id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" required /></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Họ và tên<span style="color:red">(*)</span></td>
+            <td><input class="form-control" style="width:200px" type="text" id="name" name="name"  placeholder="Nhập họ và tên" required/></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Ngày sinh</td>
+            <td><input class="form-control" style="width:200px" type="datetime" id="date" name="date" placeholder="Chọn ngày tháng năm sinh" /></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Địa chỉ</td>
+            <td><input class="form-control" style="width:200px" type="text" id="address" name="address" placeholder="Nhập địa chỉ" /></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Giới tính</td>
+            <td style="text-align:left; font-size:18px; color:#555 "><input  type="radio"  name="sex" value="B" checked />Nam
+            <input  type="radio"  name="sex" value="G" />Nữ</td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Email</td>
+            <td><input class="form-control" style="width:200px" type="email" id="mail" name="mail" placeholder="Nhập email" /></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Số điện thoại</td>
+            <td><input class="form-control" style="width:200px" type="text" id="phone" name="phone" placeholder="Nhập số điện thoại" /></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Mô tả ngắn</td>
+            <td><textarea class="form-control" style="width:200px; height:150px;" id="desc" name="desc" placeholder="Nhập mô tả ngắn"></textarea></td>
+        </tr>
+        <tr>
+            <td style="font-size:17px">Ảnh đại diện</td>
+            <td><input class="form-control" style="width:200px" type="file" id="image_avatar" name="image_avatar"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input onclick="check()" class="btn btn-success" type="submit" name="registerSubmit" value="Xác Nhận" style="float:right" /></td>
+
+        </tr>
+    </table>
+</form>

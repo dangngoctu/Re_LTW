@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title - Trang Quản Trị Thư Viện K29</title>
+
+    <link href="~/Content/AdminTemplate/style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="~/Content/Jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/datatable.css">
+
+    <script type="text/javascript" charset="utf8" src="~/Content/datatable.js"></script>
+    <link href="~/Content/all.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <h1 class="title"><span class="first">Library K29</span> <span class="last">Administrator</span></h1>
+
+        <div id="containerHolder">
+            <div id="container">
+                <div id="sidebar">
+                    <ul class="sideNav fixsideNav">
+                        <li><a href="/QuanTri/QuanLyDauSach">Quản lý đầu sách</a></li>
+                        <li><a href="/QuanTri/ThemMoiDauSach">Thêm mới đầu sách</a></li>
+                        <li><a href="/QuanTri/QuanLyTacGia">Quản lý tác giả</a></li>
+                        <li><a href="/QuanTri/ThemMoiTacGia">Thêm mới tác giả</a></li>
+                        <li><a href="/QuanTri/QuanLyMuonSach">Quản lý mượn sách</a></li>
+                        <li><a href="/TrangChu">Thoát</a></li>
+                    </ul>
+                    <!-- // .sideNav -->
+                </div>
+                <!-- // #sidebar -->
+                <!-- h2 stays for breadcrumbs -->
+                @RenderBody()
+                <!-- // #main -->
+
+                <div class="clear"></div>
+            </div>
+            <!-- // #container -->
+        </div>
+        <!-- // #containerHolder -->
+
+        <p id="footer">Copyright © 2015 <a href="https://www.facebook.com/groups/1052720381428490/">Thư Viện Thông Tin Học - Quản Trị Thông Tin K29</a></p>
+    </div>
+    <!-- // #wrapper -->
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+</body>
+</html>
+
+

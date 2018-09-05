@@ -1,0 +1,35 @@
+﻿@using _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO;
+@{
+    ViewBag.Title = "Quản Lý Đầu Sách";
+    Layout = "~/Views/Shared/AdminMasterPage.cshtml";
+    List<Sach_DTO> sachs = ViewBag.sachs;
+}
+
+<h2><a href="#">@ViewBag.Title</a></h2>
+
+<div id="main">
+    <h3>Tìm Thấy 0 Cuốn Sách</h3>
+    <table id="table_id">
+        <thead>
+            <tr>
+                <th>Hình tham khảo</th>
+                <th>Tên sách</th>
+                <th>Tên tác giả</th>
+                <th>Ngày đăng</th>
+                <th>Tùy chỉnh</th>
+            </tr>
+        </thead>
+        <tbody>
+           @for (int i = 0; i < sachs.Count; i++) { 
+                <tr>
+                    <td><img style="width:50px;height:40px" src="~/Content/bookimages/@sachs[i].Anh" /></td>
+                    <td>@sachs[i].Tensach</td>
+                    <td>@sachs[i].Tacgia</td>
+                    <td>@sachs[i].Ngaydang.ToShortDateString()</td>
+                    <td><a href="#" class="view">View</a><a href="#" class="edit">Edit</a><a href="#" class="delete">Delete</a></td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>

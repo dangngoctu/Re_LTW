@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="~/Content/LibraryK29Template/image/favicon.ico" type="image/x-icon" />
+    <title>@ViewBag.Title -Thư Viện K29</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/LibraryK29Template/templatemo_style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/all.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript">
+        function clearText(field)
+        {
+            if (field.defaultValue == field.value) field.value = '';
+            else if (field.value == '') field.value = field.defaultValue;
+        }
+    </script>
+    @RenderSection("ViewCSS", false);
+    @RenderSection("ViewJS", false);
+
+</head>
+<body>
+    <div id="templatemo_header_wrapper">
+        <!--Header -->
+        @Html.Partial("~/Views/Shared/components/Header.cshtml");
+         <!-- end of templatemo_header -->
+
+    </div>
+    <!-- end of templatemo_header_wrapper -->
+
+    <div id="templatemo_content_wrapper">
+
+        <div id="templatemo_content">
+            <!-- Body -->
+            @RenderBody()
+
+        </div> <!-- end of content -->
+
+
+        <div id="templatmeo_sidebar">
+
+            <div class="sidebar_section">
+                <!-- Slilebar -->
+                @Html.Partial("~/Views/Shared/components/SlideBarMenu.cshtml")
+
+            </div>
+            <div class="sidebar_section">
+
+                @Html.Partial("~/Views/Shared/Components/NumberOnline.cshtml")
+
+            </div>
+            <div class="cleaner_h30"></div>
+            <div class="sidebar_section">
+                <!--Related infor -->
+                @RenderSection("sidebar_section", false)
+
+            </div>
+        </div> <!-- end of sidebar -->
+
+        <div class="cleaner"></div>
+
+    </div> <div id="templatemo_content_wrapper_bottom"></div> <!-- end of content_wrapper -->
+    <!--Footer
+    @Html.Partial("~/Views/Shared/components/Footer.cshtml");
+
+    
+</body>
+</html>
