@@ -10,7 +10,7 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DAO
 {
     public class sach_DAO
     {
-        public static List<Sach_DTO> Laydanhsachcaccuonsachtufile()
+        /*public static List<Sach_DTO> Laydanhsachcaccuonsachtufile()
         {
             string urlFile = System.AppDomain.CurrentDomain.BaseDirectory;
             urlFile = urlFile + "App_Data/Sach.txt";
@@ -47,6 +47,57 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DAO
                 }
             }
             return sachs;
+        }
+        */
+        public static int SoLuongSachTrongHeThong()
+        {
+            int soluong = 0;
+            DataTable ketqua = SQLDataAccess.ThucThiSPTraVeKetQua("sp_SoLuongSachTrongHeThong");
+            soluong = (int)ketqua.Rows[0][0];
+            return soluong;
+        }
+
+        public static List<DauSachFull_DTO> DuyetKhoSachPhanTrang(int sosachtrongtrang, int tranghientai, string cotsapxep)
+        {
+            List<DauSachFull_DTO> dausachs = new List<DauSachFull_DTO>();
+            List<SqlParameter> paras = new List<SqlParameter>();
+            paras.Add(new SqlParameter("@sosachtrongtrang", sosachtrongtrang));
+            paras.Add(new SqlParameter("@tranghientai", tranghientai));
+            paras.Add(new SqlParameter("@cotsapxep", cotsapxep));
+            DataTable ketqua = SQLDataAccess.ThucThiSPTraVeKetQua("sp_DuyetKhoSachPhanTrang",paras);
+            if (ketqua.Rows.Count > 0)
+            {
+                foreach(DataRow dong in ketqua.Rows)
+                {
+                    DauSachFull_DTO dausach = new DauSachFull_DTO();
+                    dausach.Bia = dong["bia"].ToString();
+                    if(dong["filesach"]!= null)
+                    {
+                        dausach.Filesach = dong["filesach"].ToString();
+                    }
+                    
+                    dausach.Machude = dong["machude"].ToString();
+                    dausach.Madausach = dong["madausach"].ToString();
+                    dausach.Manhaxuatban = dong["manhaxuatban"].ToString();
+                    dausach.Matacgia = dong["matacgia"].ToString();
+                    dausach.Ngaydang = (DateTime)dong["ngaydang"];
+                    dausach.Tensach = dong["tensach"].ToString();
+                    if (dong["soluong"] != null)
+                    {
+                        dausach.Soluong = (int)dong["soluong"];
+                    }
+                    if (dong["tomtat"] != null)
+                    {
+                        dausach.Tomtat = dong["tomtat"].ToString();
+                    }
+                    dausach.Luotxem = (int)dong["luotxem"];
+                    dausach.Tenchude = dong["tenchude"].ToString();
+                    dausach.Tennhaxuatban = dong["tennhaxuatban"].ToString();
+                    dausach.Tentacgia = dong["tentacgia"].ToString();
+                    dausachs.Add(dausach);
+                }
+            }
+                return dausachs;
         }
     }
 }

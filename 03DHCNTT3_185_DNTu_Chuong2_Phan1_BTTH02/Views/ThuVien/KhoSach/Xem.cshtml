@@ -1,10 +1,72 @@
 ﻿
+@using _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO;
 @{
-    ViewBag.Title = "KhoSach";
+    ViewBag.Title = "Kho Sách";
+    List<Sach_DTO> dausachs = ViewBag.dausachs;
+    int sotrang = ViewBag.sotrang;
+    int tranghientai = ViewBag.tranghientai;
+    string cotsapxep = ViewBag.cotsapxep;
 }
-@section sidebar_section {
-    <h2>Sách xem nhiều nhất</h2>
-    ...
+
+@section ViewCSS{
+    <style>
+        .clear{
+            clear : both;
+        }
+
+        .sort{
+            float:right;
+        }
+
+        .sort .countNum{
+            width : 100px;
+        }
+
+        .pageindex{
+            font-weight:bold;
+            font-size:20px;
+        }
+
+        .product_box h3{
+            white-space:nowrap;
+            width:170px;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            cursor:pointer;
+        }
+    </style>
+    
 }
 <h2>Kho Sách</h2>
+<div>
+    <div class="countNum">Số lượng sách :@ViewBag.soluongsach</div>
+    <div class="sort">
+        Sắp xếp<select id="title" name="cotsapxep">
+            <option value="tensach"></option>
+            <option value="matacgia"></option>
+            <option value="manhaxuatban"></option>
+            <option value="machude"></option>
+            <option value="ngaydang"></option>
+        </select>
+    </div>
+    <div class="clear"></div>
+</div>
+<br />
+<div>
+    @foreach (Sach_DTO dausach in dausachs)
+    {
+        <div class="product_box margin_r10">
+            <h3>@dausach.Tensach</h3>
+            <img src="~/Content/upload/bookimage/thumbnail/@dausach.Bia" alt="product" />
+            <p class="author">Tác giả: </p>
+            <a href="#">Xem</a> | <a href="#">Thêm vào giỏ sách</a>
+        </div>
+    }
+    
 
+    
+
+    <div class="cleaner"></div>
+    <div class="button_01"><a href="#">Xem Tất Cả</a></div>
+</div>
+<div class="pageindex">1&nbsp;&nbsp;2&nbsp;&nbsp;3&nbsp;&nbsp;....100</div>

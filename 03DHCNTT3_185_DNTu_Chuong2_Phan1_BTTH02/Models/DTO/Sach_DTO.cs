@@ -8,33 +8,46 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO
     public class Sach_DTO
     {
         //Properties
-        private int masach;
-        private string tensach;
-        private string anh;
-        private DateTime ngaydang;
-        private string tacgia;
+        protected string madausach;
+        protected string tensach;
+        protected string manhaxuatban;
+        protected string bia;
+        protected string tomtat;
+        protected string filesach;
+        protected int soluong;
+        protected int luotxem;
+        protected DateTime ngaydang;
+        protected string machude;
+        protected string matacgia;
+
 
         //Contructor
         public Sach_DTO()
         {
-            this.Masach = -1;
-            this.Tensach = "";
-            this.Anh = "noimage.jpg";
+            this.madausach = "";
+            this.tensach = "";
+            this.filesach = "";
+            this.manhaxuatban = "";
+            this.bia = "noimage.jpg";
+            this.tomtat = "";
+            this.soluong = -1;
             this.Ngaydang = new DateTime(1, 1, 1);
-            this.Tacgia = "";
+            this.luotxem = -1;
+            this.machude = "";
+            this.matacgia = "";
         }
 
         //accessor
-        public int Masach
+        public string Madausach
         {
             get
             {
-                return masach;
+                return madausach;
             }
 
             set
             {
-                masach = value;
+                madausach = value;
             }
         }
 
@@ -51,16 +64,81 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO
             }
         }
 
-        public string Anh
+        public string Manhaxuatban
         {
             get
             {
-                return anh;
+                return manhaxuatban;
             }
 
             set
             {
-                anh = value;
+                manhaxuatban = value;
+            }
+        }
+
+        public string Bia
+        {
+            get
+            {
+                return bia;
+            }
+
+            set
+            {
+                bia = value;
+            }
+        }
+
+        public string Tomtat
+        {
+            get
+            {
+                return tomtat;
+            }
+
+            set
+            {
+                tomtat = value;
+            }
+        }
+
+        public string Filesach
+        {
+            get
+            {
+                return filesach;
+            }
+
+            set
+            {
+                filesach = value;
+            }
+        }
+
+        public int Soluong
+        {
+            get
+            {
+                return soluong;
+            }
+
+            set
+            {
+                soluong = value;
+            }
+        }
+
+        public int Luotxem
+        {
+            get
+            {
+                return luotxem;
+            }
+
+            set
+            {
+                luotxem = value;
             }
         }
 
@@ -77,17 +155,31 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO
             }
         }
 
-        public string Tacgia
+        public string Machude
         {
             get
             {
-                return tacgia;
+                return machude;
             }
 
             set
             {
-                tacgia = value;
+                machude = value;
             }
         }
+
+        public string Matacgia
+        {
+            get
+            {
+                return matacgia;
+            }
+
+            set
+            {
+                matacgia = value;
+            }
+        }
+
     }
 }

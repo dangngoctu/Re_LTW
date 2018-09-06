@@ -222,6 +222,7 @@
     <Compile Include="Models\DAO\NguoiDung_DAO.cs" />
     <Compile Include="Models\DAO\sach_DAO.cs" />
     <Compile Include="Models\DAO\SQLDataAccess.cs" />
+    <Compile Include="Models\DTO\DauSachFull_DTO.cs" />
     <Compile Include="Models\DTO\NguoiDung_DTO.cs" />
     <Compile Include="Models\DTO\Sach_DTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
