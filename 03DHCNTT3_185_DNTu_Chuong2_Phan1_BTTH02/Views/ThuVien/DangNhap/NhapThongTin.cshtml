@@ -5,6 +5,10 @@
 }
 
 <h2>Đăng Nhập</h2>
+@if (ViewBag.errormessage != null)
+{
+    <p style="color:red;">@ViewBag.errormessage</p>
+}
 @if (ViewBag.note != null)
 {
     <p style="color:red;">@ViewBag.note</p>

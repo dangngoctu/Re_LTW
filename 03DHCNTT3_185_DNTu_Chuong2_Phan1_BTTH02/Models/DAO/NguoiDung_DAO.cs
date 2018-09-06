@@ -35,5 +35,58 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DAO
             tenanhdaidien = paratenanh.SqlValue.ToString();
             return tenanhdaidien;
         }
+
+        public static NguoiDung_DTO LayThongTinNguoiDungBoiUsernameVaPassword(string username, string password)
+        {
+            List<SqlParameter> paras = new List<SqlParameter>();
+            paras.Add(new SqlParameter("@tendangnhap", username));
+            paras.Add(new SqlParameter("@matkhau", password));
+            DataTable ketqua = SQLDataAccess.ThucThiSPTraVeKetQua("sp_LayThongTinNguoiDungBoiUsernameVaPassword", paras);
+            if (ketqua.Rows.Count > 0)
+            {
+                NguoiDung_DTO nguoidung = new NguoiDung_DTO();
+                if (ketqua.Rows[0]["anhdaidien"] != null)
+                {
+                    nguoidung.Anhdaidien = ketqua.Rows[0]["anhdaidien"].ToString();
+                }
+                if (ketqua.Rows[0]["diachi"] != null)
+                {
+                    nguoidung.Diachi = ketqua.Rows[0]["diachi"].ToString();
+                }
+                if (ketqua.Rows[0]["email"] != null)
+                {
+                    nguoidung.Email = ketqua.Rows[0]["email"].ToString();
+                }
+                if (ketqua.Rows[0]["gioitinh"] != null)
+                {
+                    nguoidung.Gioitinh = ketqua.Rows[0]["gioitinh"].ToString();
+                }
+                nguoidung.Hovaten = ketqua.Rows[0]["hovaten"].ToString();
+                nguoidung.Khoanguoidung = ketqua.Rows[0]["khoanguoidung"].ToString();
+                nguoidung.Maloainguoidung = ketqua.Rows[0]["maloainguoidung"].ToString();
+                nguoidung.Matkhau = ketqua.Rows[0]["matkhau"].ToString();
+                if (ketqua.Rows[0]["motangan"] != null)
+                {
+                    nguoidung.Motangan = ketqua.Rows[0]["motangan"].ToString();
+                }
+                DateTime tam;
+                if (DateTime.TryParse(ketqua.Rows[0]["ngaysinh"].ToString(), out tam))
+                {
+                    nguoidung.Ngaysinh = tam;
+                }
+                nguoidung.Role = ketqua.Rows[0]["phanquyen"].ToString();
+                if (ketqua.Rows[0]["sodienthoai"] != null)
+                {
+                    nguoidung.Sodienthoai = ketqua.Rows[0]["sodienthoai"].ToString();
+                }
+                nguoidung.Tendangnhap = ketqua.Rows[0]["tendangnhap"].ToString();
+                return nguoidung;
+            }
+            else
+            {
+                return null;
+            }
+            return null;
+        }
     }
 }

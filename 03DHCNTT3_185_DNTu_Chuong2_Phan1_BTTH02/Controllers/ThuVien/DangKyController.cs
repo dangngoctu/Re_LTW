@@ -39,8 +39,8 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Controllers.ThuVien
                 nguoidung.Diachi = Request.Form["address"].ToString();
                 nguoidung.Email = Request.Form["mail"].ToString();
                 nguoidung.Sodienthoai = Request.Form["phone"].ToString();
-                nguoidung.Motangan = Request.Form["sex"].ToString();
-                nguoidung.Gioitinh = Request.Form["desc"].ToString();
+                nguoidung.Motangan = Request.Form["desc"].ToString();
+                nguoidung.Gioitinh = Request.Form["sex"].ToString();
                 nguoidung.Manguoidung = Request.Form["address"].ToString();
                 nguoidung.Maloainguoidung = "2";
                 nguoidung.Khoanguoidung = "U";

@@ -31,6 +31,10 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02
             count = count + 1;
             Application["countOnline"] = count;
 
+            Session.Add("manguoidung", "");
+            Session.Add("hovaten", "");
+            Session.Add("role", "u");
+            Session.Add("anhdaidien", "");
             /*if (Request.Cookies["tendangnhap"] != null && Request.Cookies["matkhau"] != null)
             {
                 string username = Request.Cookies["username"].Value;
@@ -48,7 +52,7 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02
                 Session["role"] = "u";
                 Session["image"] = "";
             }*/
-               
+
         }
         protected void Session_End()
         {

@@ -9,7 +9,7 @@
         </h1>
     </div>
     <div id="logginarea">
-        @if (Session["role"] == "m")
+        @if (Session["role"] != "m")
         {
             <a href="#"><img src="~/Content/LibraryK29Template/images/cart.png" id="cart">(0 Cuốn sách)</a>
         }
@@ -20,11 +20,11 @@
         }
         @if (Session["role"] == "m")
         {
-            @:| <a href="/QuanLyCaNhan/Xem">@Session["name"]</a>
+            @:| <a href="/QuanLyCaNhan/Xem">@Session["hovaten"]</a>
         }
         @if (Session["role"] != "m")
         {
-            <a href="/QuanLyCaNhan/Xem">@Session["name"]</a>
+            @:|<a href="/QuanLyCaNhan/Xem">@Session["hovaten"]</a>
         }
         @if (Session["role"] != "u")
         {

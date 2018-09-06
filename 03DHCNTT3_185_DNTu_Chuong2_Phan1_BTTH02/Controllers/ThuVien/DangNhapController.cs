@@ -21,21 +21,53 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Controllers.ThuVien
             return View("~/Views/ThuVien/DangNhap/NhapThongTin.cshtml");
         }
 
-        
+        public ActionResult ThucHienDangNhap(string username, string password)
+        {
+            if (Session["role"] != "u")
+            {
+                return Redirect("/TrangChu/Xem");
+            }
+            try
+            {
+                NguoiDung_DTO nguoidung = NguoiDung_BUS.LayThongTinNguoiDungBoiUsernameVaPassword(username, password);
+                if (nguoidung != null)
+                {
+                    Session["manguoidung"] = nguoidung.Manguoidung;
+                    Session["hovaten"] = nguoidung.Hovaten;
+                    Session["role"] = nguoidung.Role;
+                    Session["anhdaidien"] = nguoidung.Anhdaidien;
+                    return Redirect("/TrangChu/Xem");
+                }
+                else
+                {
+                    ViewBag.errormessage = "Tên đăng nhập và mật khẩu không đúng, vui lòng nhập lại";
+                    return View("~/Views/ThuVien/DangNhap/NhapThongTin.cshtml");
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.errormessage = "Tên đăng nhập và mật khẩu không đúng, vui lòng nhập lại";
+                return View("~/Views/ThuVien/DangNhap/NhapThongTin.cshtml");
+            }
+        }
+
         public ActionResult ThucHienDangXuat()
         {
-            Session["name"] = "";
-            Session["role"] = "u";
-            Session["image"] = "";
-
-            if (Request.Cookies["username"] != null && Request.Cookies["password"] != null)
+            if (Session["role"] != "u")
             {
-                Response.Cookies["username"].Expires = DateTime.Now.AddDays(-1);
-                Response.Cookies["password"].Expires = DateTime.Now.AddDays(-1);
+                return Redirect("/TrangChu/Xem");
             }
+            Session["manguoidung"] = "";
+            Session["hovaten"] = "";
+            Session["phanquyen"] = "u";
+            Session["anhdaidien"] = "";
 
+            if (Request.Cookies["tendangnhap"] != null && Request.Cookies["matkhau"] != null)
+            {
+                Response.Cookies["tendangnhap"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["matkhau"].Expires = DateTime.Now.AddDays(-1);
+            }
             return Redirect("/TrangChu/Xem");
-
         }
     }
 }

@@ -20,6 +20,7 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO
         private string manguoidung;
         private string maloainguoidung;
         private string khoanguoidung;
+        private string role;
 
         public NguoiDung_DTO()
         {
@@ -36,6 +37,7 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO
             manguoidung = "";
             maloainguoidung = "";
             khoanguoidung = "";
+            role = "";
         }
 
 
@@ -208,5 +210,17 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO
             }
         }
 
+        public string Role
+        {
+            get
+            {
+                return role;
+            }
+
+            set
+            {
+                role = value;
+            }
+        }
     }
 }
