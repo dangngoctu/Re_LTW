@@ -17,8 +17,8 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Controllers.Admin
             {
                 return Redirect("/TrangChu/Xem");
             }
-            List<Sach_DTO> sachs = Sach_BUS.Laydanhsachcacdausach();
-            ViewBag.sachs = sachs;
+          //  List<Sach_DTO> sachs = Sach_BUS.Laydanhsachcacdausach();
+          //  ViewBag.sachs = sachs;
             return View("~/Views/Admin/QuanLyDauSach/Xem.cshtml");
         }
     }

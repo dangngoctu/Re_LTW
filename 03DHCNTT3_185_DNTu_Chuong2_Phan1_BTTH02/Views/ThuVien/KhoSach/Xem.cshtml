@@ -2,16 +2,16 @@
 @using _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO;
 @{
     ViewBag.Title = "Kho Sách";
-    List<Sach_DTO> dausachs = ViewBag.dausachs;
+    List<DauSachFull_DTO> dausachs = (List<DauSachFull_DTO>)ViewBag.dausachs;
     int sotrang = ViewBag.sotrang;
     int tranghientai = ViewBag.tranghientai;
     string cotsapxep = ViewBag.cotsapxep;
-}
+    }
 
-@section ViewCSS{
+    @section ViewCSS{
     <style>
         .clear{
-            clear : both;
+        clear : both;
         }
 
         .sort{
@@ -19,7 +19,7 @@
         }
 
         .sort .countNum{
-            width : 100px;
+        width : 100px;
         }
 
         .pageindex{
@@ -29,10 +29,10 @@
 
         .product_box h3{
             white-space:nowrap;
-            width:170px;
+        width:170px;
             text-overflow:ellipsis;
-            overflow:hidden;
-            cursor:pointer;
+        overflow:hidden;
+        cursor:pointer;
         }
     </style>
     
