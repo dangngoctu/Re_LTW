@@ -11,12 +11,17 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Controllers.ThuVien
     public class KhoSachController : Controller
     {
         // GET: KhoSach
-        public ActionResult Xem()
+        public ActionResult Xem(string sapxep)
         {
             int soluongsach = Sach_BUS.SoLuongSachTrongHeThong();
             int sosachtrongtrang = 30;
             int tranghientai = 1;
             string cotsapxep = "ngaydang";
+            if (sapxep != null && sapxep != "")
+            {
+                cotsapxep = (string)sapxep;
+            }
+            
             int sotrang = (int)Math.Ceiling((float)soluongsach / (float)sosachtrongtrang);
             
             if(tranghientai < 1)

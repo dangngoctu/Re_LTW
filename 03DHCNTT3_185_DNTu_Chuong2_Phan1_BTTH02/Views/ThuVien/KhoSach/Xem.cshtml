@@ -8,6 +8,17 @@
     string cotsapxep = ViewBag.cotsapxep;
     }
 
+    @section ViewJS{
+        <script>
+            $(document).ready(function () {
+                $("#title").change(function () {
+                    var a = $("#title").val();
+                    var url = "Xem?sapxep=" + a;
+                    window.location = url;
+                });
+            });
+        </script>
+    }
     @section ViewCSS{
     <style>
         .clear{
@@ -41,24 +52,24 @@
 <div>
     <div class="countNum">Số lượng sách :@ViewBag.soluongsach</div>
     <div class="sort">
-        Sắp xếp<select id="title" name="cotsapxep">
-            <option value="tensach"></option>
-            <option value="matacgia"></option>
-            <option value="manhaxuatban"></option>
-            <option value="machude"></option>
-            <option value="ngaydang"></option>
+        Sắp xếp<select id="title" name="cotsapxep"">
+            <option  value="tensach">Tên sách</option>
+            <option value="matacgia">Tác giả</option>
+            <option value="manhaxuatban">Nhà xuất bản</option>
+            <option value="machude">Chủ đề</option>
+            <option value="ngaydang">Ngày đăng</option>
         </select>
     </div>
     <div class="clear"></div>
 </div>
 <br />
 <div>
-    @foreach (Sach_DTO dausach in dausachs)
+    @foreach (DauSachFull_DTO dausach in dausachs)
     {
         <div class="product_box margin_r10">
             <h3>@dausach.Tensach</h3>
             <img src="~/Content/upload/bookimage/thumbnail/@dausach.Bia" alt="product" />
-            <p class="author">Tác giả: </p>
+            <p class="author">Tác giả: @dausach.Tentacgia </p>
             <a href="#">Xem</a> | <a href="#">Thêm vào giỏ sách</a>
         </div>
     }
