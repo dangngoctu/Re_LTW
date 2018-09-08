@@ -1,12 +1,14 @@
 ﻿
 @using _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO;
 @{
-    ViewBag.Title = "Kho Sách";
+    ViewBag.Title = "Sách theo chủ đề";
     List<DauSachFull_DTO> dausachs = (List<DauSachFull_DTO>)ViewBag.dausachs;
     int sotrang = ViewBag.sotrang;
     int tranghientai = ViewBag.tranghientai;
     string cotsapxep = ViewBag.cotsapxep;
     List<Sach_DTO> sachs = ViewBag.sachs;
+    string machude = ViewBag.machude;
+    ChuDe_DTO chude = ViewBag.chude;
     }
 
     @section ViewJS{
@@ -14,7 +16,7 @@
             $(document).ready(function () {
                 $("#title").change(function () {
                     var a = $("#title").val();
-                    var url = "/KhoSach/Xem?sapxep=" + a;
+                    var url = "/KhoSach/ChuDe?ma=@machude&&sapxep=" + a;
                     window.location =  url;
                 });
             });
@@ -92,33 +94,35 @@
 }
 <h2>Kho Sách</h2>
 <div>
-    <div class="countNum">Số lượng sách :@ViewBag.soluongsach</div>
-    <div class="sort">
-        Sắp xếp<select id="title" name="cotsapxep"">
-            <option  value="tensach" @if (cotsapxep == "tensach")
-                                    {
-                                        @:selected
-                                    }>Tên sách</option>
-            <option value="matacgia" @if (cotsapxep == "matacgia")
-                                    {
-                                        @:selected
-                                    }>Tác giả</option>
-            <option value="manhaxuatban" @if (cotsapxep == "manhaxuatban")
-                                    {
-                                        @:selected
-                                    }>Nhà xuất bản</option>
-            <option value="machude" @if (cotsapxep == "machude")
-                                    {
-                                        @:selected
-                                    }>Chủ đề</option>
-            <option value="ngaydang" @if (cotsapxep == "ngaydang")
-                                    {
-                                        @:selected
-                                    }>Ngày đăng</option>
+    <div id="countNum">Số lượng sách: @ViewBag.soluongsach</div>
+    <div id="sort">
+        Sắp xếp
+        <select id="title" name="cotsapxep">
+            <option value="tensach" @if (cotsapxep == "tensach") { @: selected
+                                                        }>
+                Tên Sách
+            </option>
+            <option value="matacgia" @if (cotsapxep == "matacgia") { @: selected
+                                                        }>
+                Tác Giả
+            </option>
+            <option value="manhaxuatban" @if (cotsapxep == "manhaxuatban") { @: selected
+                                                            }>
+                Nhà Xuất Bản
+            </option>
+            <option value="machude" @if (cotsapxep == "machude") { @: selected
+                                                        }>
+                Chủ Đề
+            </option>
+            <option value="ngaydang" @if (cotsapxep == "ngaydang") { @: selected
+                                                        }>
+                Ngày Đăng
+            </option>
         </select>
     </div>
     <div class="clear"></div>
 </div>
+
 <br />
 <div>
     @foreach (DauSachFull_DTO dausach in dausachs)

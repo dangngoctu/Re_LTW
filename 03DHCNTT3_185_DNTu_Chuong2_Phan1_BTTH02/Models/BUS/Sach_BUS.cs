@@ -28,5 +28,25 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.BUS
         {
             return sach_DAO.DuyetKhoSachPhanTrang(sosachtrongtrang, tranghientai, cotsapxep);
         }
+
+        public static List<Sach_DTO> Top10DauSachXemNhieuNhat()
+        {
+            return sach_DAO.Top10DauSachXemNhieuNhat();
+        }
+
+        public static List<DauSachFull_DTO> DuyetKhoSachTheoChuDePhanTrang(string machude, int sosachtrongtrang, int tranghientai, string cotsapxep)
+        {
+            return sach_DAO.DuyetKhoSachTheoChuDePhanTrang(machude, sosachtrongtrang, tranghientai, cotsapxep);
+        }
+
+        public static int SoLuongSachCoTrongHeThongCuaMotChuDe(string machude)
+        {
+            return sach_DAO.SoLuongSachCoTrongHeThongCuaMotChuDe(machude);
+        }
+
+        public static List<Sach_DTO> Top10DauSachXemNhieuNhatTheoMaChuDe(string machude)
+        {
+            return sach_DAO.Top10DauSachXemNhieuNhatTheoMaChuDe(machude);
+        }
     }
 }   

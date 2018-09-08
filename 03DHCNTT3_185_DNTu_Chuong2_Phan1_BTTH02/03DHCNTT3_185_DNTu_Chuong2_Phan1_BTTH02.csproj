@@ -215,13 +215,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BUS\ChuDe_BUS.cs" />
     <Compile Include="Models\BUS\MaHoaThongTin_BUS.cs" />
     <Compile Include="Models\BUS\NguoiDung_BUS.cs" />
     <Compile Include="Models\BUS\Sach_BUS.cs" />
     <Compile Include="Models\BUS\XuLyAnh.cs" />
+    <Compile Include="Models\DAO\ChuDe_DAO.cs" />
     <Compile Include="Models\DAO\NguoiDung_DAO.cs" />
     <Compile Include="Models\DAO\sach_DAO.cs" />
     <Compile Include="Models\DAO\SQLDataAccess.cs" />
+    <Compile Include="Models\DTO\ChuDe_DTO.cs" />
     <Compile Include="Models\DTO\DauSachFull_DTO.cs" />
     <Compile Include="Models\DTO\NguoiDung_DTO.cs" />
     <Compile Include="Models\DTO\Sach_DTO.cs" />
@@ -318,6 +321,7 @@
     <Content Include="Views\Admin\ThemMoiTacGia\Xem.cshtml" />
     <Content Include="Views\Shared\components\NumberOnline.cshtml" />
     <Content Include="Views\ThuVien\DangKy\NhapLaiThongTin.cshtml" />
+    <Content Include="Views\ThuVien\KhoSach\ChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\AdminTemplate\" />
