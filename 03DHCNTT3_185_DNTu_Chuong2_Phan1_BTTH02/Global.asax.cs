@@ -30,11 +30,10 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02
             int count = (int)Application["countOnline"];
             count = count + 1;
             Application["countOnline"] = count;
-
+            Session.Add("manguoidung", "");
             Session.Add("manguoidung", "");
             Session.Add("hovaten", "");
             Session.Add("role", "u");
-            Session.Add("anhdaidien", "");
             /*if (Request.Cookies["tendangnhap"] != null && Request.Cookies["matkhau"] != null)
             {
                 string username = Request.Cookies["username"].Value;

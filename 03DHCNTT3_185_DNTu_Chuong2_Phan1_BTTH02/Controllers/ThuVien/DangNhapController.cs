@@ -25,7 +25,7 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Controllers.ThuVien
         {
             if (Session["role"] != "u")
             {
-                return Redirect("/TrangChu/Xem");
+                return Redirect("/KhoSach/Xem");
             }
             try
             {
@@ -36,7 +36,12 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Controllers.ThuVien
                     Session["hovaten"] = nguoidung.Hovaten;
                     Session["role"] = nguoidung.Role;
                     Session["anhdaidien"] = nguoidung.Anhdaidien;
-                    return Redirect("/TrangChu/Xem");
+                    if (Session["role"].ToString() == "me")
+                    {
+                        Session["items"] = new List<Item_DTO>();
+                    }
+                   
+                    return Redirect("/KhoSach/Xem");
                 }
                 else
                 {
@@ -59,15 +64,20 @@ namespace _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Controllers.ThuVien
             }
             Session["manguoidung"] = "";
             Session["hovaten"] = "";
-            Session["phanquyen"] = "u";
+            Session["role"] = "u";
             Session["anhdaidien"] = "";
+
+            if (Session["items"] != null)
+            {
+                Session.Remove("items");
+            }
 
             if (Request.Cookies["tendangnhap"] != null && Request.Cookies["matkhau"] != null)
             {
                 Response.Cookies["tendangnhap"].Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies["matkhau"].Expires = DateTime.Now.AddDays(-1);
             }
-            return Redirect("/TrangChu/Xem");
+            return Redirect("/KhoSach/Xem");
         }
     }
 }

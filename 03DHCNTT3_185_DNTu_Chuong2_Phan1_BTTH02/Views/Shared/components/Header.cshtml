@@ -1,4 +1,24 @@
-﻿<div id="templatemo_header">
+﻿@using _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO;
+@{
+    string chuoihienthi = "";
+    if (ViewBag.khoa != null && ViewBag.khoa != "")
+    {
+        chuoihienthi = ViewBag.khoa;
+    }
+    else
+    {
+        chuoihienthi = "Nhập vào từ khóa tìm kiếm...";
+    }
+    int soluongcuonsachtronggiosach = 0;
+    if (Session["items"] != null)
+    {
+        foreach (Item_DTO item in (List<Item_DTO>)Session["items"])
+        {
+            soluongcuonsachtronggiosach = soluongcuonsachtronggiosach + item.Soluong;
+        }
+    }
+}
+<div id="templatemo_header">
 
     <div id="site_title">
         <h1>
@@ -11,7 +31,7 @@
     <div id="logginarea">
         @if (Session["role"] != "m")
         {
-            <a href="#"><img src="~/Content/LibraryK29Template/images/cart.png" id="cart">(0 Cuốn sách)</a>
+            <a href="/GioSach/XemChiTiet"><img src="~/Content/LibraryK29Template/images/cart.png" id="cart">(@soluongcuonsachtronggiosach Cuốn sách)</a>
         }
         @if (Session["role"] == "u")
         {
@@ -46,8 +66,8 @@
     </div> <!-- end of templatemo_menu -->
 
     <div id="search_box">
-        <form action="#" method="get">
-            <input type="text" value="Nhập vào từ khóa..." name="q" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+        <form action="/Timkiem/ThucHienTimKiem" method="get">
+            <input type="text" value="@chuoihienthi" name="khoa" size="10" id="searchfield" title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
         </form>
     </div>
 

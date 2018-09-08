@@ -1,0 +1,66 @@
+﻿@using _03DHCNTT3_185_DNTu_Chuong2_Phan1_BTTH02.Models.DTO;
+@{
+    ViewBag.Title = "Chi Tiết Giỏ Sách";
+    List<Item_DTO> items = (List<Item_DTO>)Session["items"];
+}
+@section ViewJS{
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+}
+
+@section ViewCSS{
+    <style>
+        .dongchan {
+            background-color: #D8F9C8;
+        }
+
+        #buttondangky {
+            height: 30px;
+            border-radius: 5px;
+            background-color: #00BC15;
+            color: #ffffff;
+            border: 1px solid #885788;
+            text-align: center;
+        }
+
+        #errormessage {
+            color: red;
+        }
+    </style>
+}
+<h2>Chi Tiết Giỏ Sách</h2>
+@if (ViewBag.errormessage != null && ViewBag.errormessage != "")
+{
+    <p id="errormessage">@ViewBag.errormessage</p>
+}
+<table id="table_id">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Ảnh</th>
+            <th>Tên Sách</th>
+            <th>Số Lượng</th>
+            <th>Thêm</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < items.Count; i++)
+        {
+            <tr>
+                <td>@(i + 1)</td>
+                <td><img src="~/Content/upload/bookimage/thumbnail/@items[i].Bia" style="height:60px ;width:50px"></td>
+                <td>@items[i].Tensach</td>
+                <td>@items[i].Soluong</td>
+                <td><a href="/GioSach/XemChiTiet?madausach=@items[i].Madausach">Xem</a></td>
+                <td><a href="/GioSach/SuaThongTin?madausach=@items[i].Madausach">Sửa</a></td>
+                <td><a href="/GioSach/XoaDauSachMuon?madausach=@items[i].Madausach">Xóa</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/KhoSach/DatMuonSach"><input id="buttondangky" class="buttonsubmit" type="button" value="Đăng Ký Mượn Sách"></a>

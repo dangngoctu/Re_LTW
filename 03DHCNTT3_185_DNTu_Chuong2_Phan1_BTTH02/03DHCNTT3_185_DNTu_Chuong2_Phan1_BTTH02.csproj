@@ -206,10 +206,12 @@
     <Compile Include="Controllers\ThuVien\AdminController.cs" />
     <Compile Include="Controllers\ThuVien\DangKyController.cs" />
     <Compile Include="Controllers\ThuVien\DangNhapController.cs" />
+    <Compile Include="Controllers\ThuVien\GioSachController.cs" />
     <Compile Include="Controllers\ThuVien\KhoSachController.cs" />
     <Compile Include="Controllers\ThuVien\LienHeController.cs" />
     <Compile Include="Controllers\ThuVien\QuanLyCaNhanController.cs" />
     <Compile Include="Controllers\ThuVien\TacGiaController.cs" />
+    <Compile Include="Controllers\ThuVien\TimKiemController.cs" />
     <Compile Include="Controllers\ThuVien\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,6 +228,7 @@
     <Compile Include="Models\DAO\SQLDataAccess.cs" />
     <Compile Include="Models\DTO\ChuDe_DTO.cs" />
     <Compile Include="Models\DTO\DauSachFull_DTO.cs" />
+    <Compile Include="Models\DTO\Item_DTO.cs" />
     <Compile Include="Models\DTO\NguoiDung_DTO.cs" />
     <Compile Include="Models\DTO\Sach_DTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -322,12 +325,17 @@
     <Content Include="Views\Shared\components\NumberOnline.cshtml" />
     <Content Include="Views\ThuVien\DangKy\NhapLaiThongTin.cshtml" />
     <Content Include="Views\ThuVien\KhoSach\ChuDe.cshtml" />
+    <Content Include="Views\ThuVien\KhoSach\ThucHienTimKiem.cshtml" />
+    <Content Include="Views\ThuVien\KhoSach\ChiTietSach.cshtml" />
+    <Content Include="Views\ThuVien\KhoSach\SuaThongTin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\AdminTemplate\" />
     <Folder Include="Content\bookimages\" />
     <Folder Include="Content\LibraryK29Template\" />
     <Folder Include="Content\Upload\avatar\" />
+    <Folder Include="Views\GioSach\" />
+    <Folder Include="Views\TimKiem\" />
     <Folder Include="Views\TrangChu\" />
   </ItemGroup>
   <ItemGroup>
